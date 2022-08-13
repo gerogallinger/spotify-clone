@@ -44,19 +44,19 @@
       <button (click)="multimediaService.togglePlayer()" class="play btn">
         <i
           [ngClass]="{
-            'uli-play-circle': state === 'paused',
-            'uli-pause-circle': state !== 'paused'
+            'uli uil-play-circle': state === 'paused',
+            'uli uil-pause-circle': state !== 'paused'
           }"
           class="uli"
         ></i>
       </button>
       <button class="arrow btn">
-        <i class="uil uil-step-forward"></i>
+        <i class="uil uil-step-forward"> </i>
       </button>
     </div>
     <div class="media-linetime">
       <div class="time">{{ multimediaService.timeElapsed$ | async }}</div>
-      <span #progressBar class="time-progress">
+      <span #progressBar (click)="handlePosition($event)" class="time-progress">
         <span
           class="time-progress-live"
           [style.width]="(multimediaService.playerPercentage$ | async) + '%'"

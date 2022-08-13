@@ -19,6 +19,7 @@ TODO: rxjs es de programacion reactiva
   styleUrls: ['./media-player.component.css'],
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
+  @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('');
   listObservers$: Array<Subscription> = [];
   state: string = 'paused';
 
@@ -59,13 +60,13 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
     console.log('ESTE COMPONENTE SE VA A DESTRUIR... en 3 2 1 ...');
   }
 
-  // handlePosition(event: MouseEvent): void {
-  //   const elNative: HTMLElement = this.progressBar.nativeElement;
-  //   const { clientX } = event;
-  //   const { x, width } = elNative.getBoundingClientRect();
-  //   const clickX = clientX - x; //TODO: 1050 - x
-  //   const percentageFromX = (clickX * 100) / width;
-  //   console.log(`Click(x): ${percentageFromX}`);
-  //   this.multimediaService.seekAudio(percentageFromX);
-  // }
+  handlePosition(event: MouseEvent): void {
+    const elNative: HTMLElement = this.progressBar.nativeElement;
+    const { clientX } = event;
+    const { x, width } = elNative.getBoundingClientRect();
+    const clickX = clientX - x; //TODO: 1050 - x
+    const percentageFromX = (clickX * 100) / width;
+    console.log(`Click(x): ${percentageFromX}`);
+    this.multimediaService.seekAudio(percentageFromX);
+  }
 }
