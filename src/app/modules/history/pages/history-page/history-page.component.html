@@ -1,0 +1,6 @@
+<div class="history-page">
+  <!-- callbackData es un evento en search component(componente hijo) para devolver algo -->
+  <app-search (callbackData)="receiveData($event)"></app-search>
+  <!-- Se usa un async que es un pipe -->
+  <app-play-list-body [tracks]="listResults$ | async"></app-play-list-body>
+</div>

@@ -1,0 +1,11 @@
+<div class="search-component">
+  <!-- Para que funcione el ngModel tenes que ir al modulo mas cercano en jerarquia e importar el forms -->
+  <input
+    (ngModelChange)="callSearch($event)"
+    [(ngModel)]="src"
+    type="text"
+    placeholder="Artistas, canciones o pódcast"
+  />
+  <br />
+  <div>Resultado: {{ src }}</div>
+</div>

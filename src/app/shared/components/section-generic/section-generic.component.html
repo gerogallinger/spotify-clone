@@ -1,0 +1,18 @@
+<div class="section--generic">
+  <h1 class="section--generic__title">{{ title }}</h1>
+
+  <div class="section--generic__player--zone">
+    <ul
+      class="player--list"
+      [ngClass]="{ 'card-small': mode === 'small', 'card-big': mode === 'big' }"
+    >
+      <!-- mode y title son parametros que se pasan desde el html y se declaran en el component como input -->
+
+      <li *ngFor="let player of dataTracks">
+        <!-- <app-card-player [track]="track" [mode]="mode"></app-card-player> -->
+
+        <app-card-player [track]="player" [mode]="mode"></app-card-player>
+      </li>
+    </ul>
+  </div>
+</div>
