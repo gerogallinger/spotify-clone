@@ -18,8 +18,11 @@ export class MultimediaService {
 
   constructor() {
     this.audio = new Audio();
+
     this.trackInfo$.subscribe((responsiveOK) => {
-      this.setAudio(responsiveOK);
+      if (responsiveOK) {
+        this.setAudio(responsiveOK);
+      }
     });
 
     this.listenAllEvents();

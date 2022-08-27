@@ -1,13 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TracksPageComponent } from './tracks-page.component';
 
-describe('HistoryPageComponent', () => {
+describe('TracksPageComponent', () => {
   let component: TracksPageComponent;
   let fixture: ComponentFixture<TracksPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [TracksPageComponent],
     }).compileComponents();
   });
